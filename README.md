@@ -2,6 +2,8 @@
 
 This is a quick and dirty script that I wrote to replace my need for Grooveshark now that it is dead. S3 costs .03 per gigabyte per month which means that 25000 songs stored there cost around $3.75 per month. And they will be there for the next decade. Yes we could add a lot of features and make this a full blown application written with a proper framework, but I don't have the money to fund that right now... maybe kickstart that thing later.
 
+But here is what you need, you need a bucket with your music... As it stands it will dump all the content on a single page... So a few hundred songs is fine, a few thousand is not...
+
 
 ![Screenshot](https://raw.githubusercontent.com/etopian/amazon-s3-music-player/master/s3-music-player.png)
 
