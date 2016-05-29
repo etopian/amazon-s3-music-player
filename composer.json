@@ -1,0 +1,8 @@
+{
+  "require": {
+    "slim/slim": "^3.0",
+    "slim/pdo": "~1.9",
+    "jeremykendall/slim-auth": "*",
+    "slim/php-view": "*"
+  }
+}
