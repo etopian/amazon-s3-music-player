@@ -2,10 +2,11 @@
 <html>
 <head>
 
-    <link rel="stylesheet" href="//codeorigin.jquery.com/jquery-wp-content/themes/jquery/css/base.css?v=1">
+    <link rel="stylesheet" href="<?= $base_url; ?>assets/base.css">
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="<?= $base_url; ?>assets/jquery.min.js"></script>
+    <script src="<?= $base_url; ?>assets/jquery-ui.min.js"></script>
+    <script src="<?= $base_url; ?>assets/punch.min.js"></script>
     <script src="<?= $base_url; ?>assets/script.js"></script>
     <script src="<?= $base_url; ?>assets/list.min.js"></script>
     <script src="<?= $base_url; ?>assets/jsmediatags.min.js"></script>
