@@ -1,7 +1,7 @@
 {
-  "AWS_KEY": "AKIAILFAF46MG32INCYA",
-  "AWS_SECRET": "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",
-  "PASSWORD": "",
-  "BUCKET": "mp3s.personal",
+  "AWS_KEY": "",
+  "AWS_SECRET": "",
+  "BUCKET": "",
+  "HTTP_PASSWORD": "",
   "APCU_CACHE": true
 }

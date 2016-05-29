@@ -5,9 +5,9 @@ require_once('aws.phar');
 
 
 $GLOBALS['settings'] = json_decode(file_get_contents('settings.json'),true);
-//if($_GET['pass'] != $settings['PASSWORD']){
-//    die('Access denied');
-//}
+if($_GET['pass'] != $GLOBALS['settings']['HTTP_PASSWORD']){
+    die('Access denied.');
+}
 
 use Aws\S3\S3Client;
 use Aws\S3\Exception\S3Exception;
