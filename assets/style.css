@@ -20,13 +20,7 @@ h3{
     display: block;
 }
 
-#main-container > div:nth-child(2) {
-    flex-grow: 1;
 
-    padding-left: 20px;
-    padding-top: 20px;
-    background: none;
-}
 
 
 #sidebar-fixed{
@@ -35,9 +29,9 @@ h3{
     left: 0;
     background-color: #322E2E;
     height: 100vh;
-    width: 25vw;
     overflow: scroll;
     box-shadow: #322E2E 1px 2px;
+    width: 25vw;
 }
 
 
@@ -97,12 +91,13 @@ h3{
     display: block;
     padding: 5px;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 0;
     color: white;
 }
 
 #main-container #sidebar-fixed ul li a.remove{
     float:right;
+    margin-right: 20px;
 }
 
 #main-container #sidebar-fixed ul li a.playlist-link {
@@ -145,8 +140,7 @@ h3{
 }
 
 #nav {
-    width: 20vw;
-
+    width: 25vw;
     box-flex:  0;
 }
 
@@ -163,7 +157,10 @@ h3{
     min-height: 100vh;
     overflow: hidden;
     max-width: 75vw;
-    margin-left: 10vw;
+    flex: 1;
+
+
+
 
 
 }

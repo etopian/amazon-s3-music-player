@@ -6,10 +6,10 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <script src="/assets/script.js"></script>
-    <script src="/assets/list.min.js"></script>
-    <script src="/assets/jsmediatags.min.js"></script>
-    <link rel="stylesheet" href="/assets/style.css">
+    <script src="<?= $base_url; ?>assets/script.js"></script>
+    <script src="<?= $base_url; ?>assets/list.min.js"></script>
+    <script src="<?= $base_url; ?>assets/jsmediatags.min.js"></script>
+    <link rel="stylesheet" href="<?= $base_url; ?>assets/style.css">
 
 </head>
 <body>

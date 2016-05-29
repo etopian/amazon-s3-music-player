@@ -5,9 +5,11 @@ require_once('aws.phar');
 
 
 $GLOBALS['settings'] = json_decode(file_get_contents('settings.json'),true);
-//if( $_GET['pass'] != $GLOBALS['settings']['HTTP_PASSWORD']){
-//    die('Access denied.');
-//}
+if(!empty($GLOBALS['settings']['HTTP_PASSWORD'])) {
+    if ($_GET['pass'] != $GLOBALS['settings']['HTTP_PASSWORD']) {
+        die('Access denied.');
+    }
+}
 
 use Aws\S3\S3Client;
 use Aws\S3\Exception\S3Exception;
@@ -29,6 +31,8 @@ $container['view'] = function ($container) {
 // Render Twig template in route
 $app->get('/', function ($request, $response, $args) {
 
+
+    $path = $this->router->pathFor('player');
     $settings = $GLOBALS['settings'];
 
     // Instantiate an S3 client
@@ -58,7 +62,8 @@ $app->get('/', function ($request, $response, $args) {
 
 
     return $this->view->render($response, 'index.tpl.php', [
-        'urls' => $urls
+        'urls' => $urls,
+        'base_url' => $path
     ]);
 })->setName('player');
 

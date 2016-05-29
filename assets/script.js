@@ -2,6 +2,15 @@ $(window).on('beforeunload', function () {
         return 'Are you sure you want to leave? Music will stop playing if you do that.';
 });
 
+
+function save_playlist(){
+    
+}
+
+function save_history(){
+
+}
+
 function add_to_playlist_history(url, title){
     $('#playlist-history li#empty-item').remove();
     var currentdate = new Date();
