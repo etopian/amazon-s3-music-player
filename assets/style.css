@@ -12,22 +12,18 @@ h3{
     font-size: 0.8em;
     color: gray;
     text-transform: uppercase;
+    text-shadow: 1px 1px 1px #000;
 
 }
 
 #main-container {
     display: block;
 }
-#main-container > div:first-child {
 
-    margin-right: 20px;
-    width: 300px;
-
-}
 #main-container > div:nth-child(2) {
     flex-grow: 1;
 
-    padding-left: 40px;
+    padding-left: 20px;
     padding-top: 20px;
     background: none;
 }
@@ -39,11 +35,36 @@ h3{
     left: 0;
     background-color: #322E2E;
     height: 100vh;
+    width: 25vw;
     overflow: scroll;
+    box-shadow: #322E2E 1px 2px;
 }
 
-#player{
-    margin: 10px;
+
+
+#player-container{
+    background: #231F21;
+    padding: 5%;
+}
+
+#player-container #audio-info{
+    width: 100%;
+    border-radius: 2px;
+    border: 1px solid black;
+    background: #231F21;
+    padding: 4px;
+    border: 1px solid black;
+    color: white;
+    margin: 0;
+    font-size: 12px;
+    box-shadow: #322E2E 1px 2px;
+}
+
+#player-container #player{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 100%;
+    clear:both;
 
 }
 
@@ -66,6 +87,28 @@ h3{
 
 }
 
+#main-container #sidebar-fixed ul li{
+    margin: 0;
+}
+
+#main-container #sidebar-fixed ul li a,
+#main-container #sidebar-fixed ul li#empty-item
+{
+    display: block;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+}
+
+#main-container #sidebar-fixed ul li a.remove{
+    float:right;
+}
+
+#main-container #sidebar-fixed ul li a.playlist-link {
+    float:left;
+}
+
 #main-container ul li:hover{
     background: #000;
 }
@@ -76,19 +119,9 @@ h3{
 
 }
 
-#audio-info{
-    width: 96%;
-    width: 300px;
-    border-radius: 2px;
-    border: 1px solid black;
-    background: #878484;
-    padding: 1%;
-    color: white;
-    margin: 2%;"
-}
 
 #playlist ul li{
-    width: 300px;
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -96,8 +129,8 @@ h3{
 
 #search-form{
     position: fixed;
-    right: 10px;
-    top: 0;
+    right: 20px;
+    top: 10px;
 }
 
 #main-container {
@@ -108,11 +141,11 @@ h3{
     -moz-box-orient: horizontal;
     -ms-box-orient: horizontal;
     box-orient: horizontal;
+
 }
 
 #nav {
-    background: hotpink;
-    width: 300px;
+    width: 20vw;
 
     box-flex:  0;
 }
@@ -128,8 +161,41 @@ h3{
     flex-basis:auto;
     flex-direction: row;
     min-height: 100vh;
+    overflow: hidden;
+    max-width: 75vw;
+    margin-left: 10vw;
+
+
 }
 
 #main ul li a{
+    white-space: nowrap;
+    overflow:hidden;
     display: block;
+}
+
+#skip-btn{
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-size: .8em;
+    color: gray;
+
+}
+
+#skip-btn a{
+    color: gray;
+}
+
+input.search{
+    padding: 10px;
+    border: 0;
+    background: #efefef;
+    color: black;
+    width: 200px;
+
+}
+
+#playlist{
+    margin-top: 10px;
 }

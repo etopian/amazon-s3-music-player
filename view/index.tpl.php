@@ -17,24 +17,29 @@
 
         <div id="nav">
             <div id="sidebar-fixed">
-                <div id="audio-info">
+                <div id="player-container">
+                    <div id="audio-info">
+                        Please select a track to play.
+                    </div>
+
+                    <audio id="player" controls>
+                        <source id="mp3_src" src="" type="audio/mpeg">
+                    </audio>
+                    <div id="skip-btn"><a href="#" id="skip-link">Play Random Track</a></div>
 
                 </div>
 
-                <audio id="player" controls>
-
-                    <source id="mp3_src" src="" type="audio/mpeg">
-
-                </audio>
 
                 <div id="playlist">
                     <h3>Playlist</h3>
                     <ul id="items">
+                        <li id="empty-item">No items in the playlist.</li>
                     </ul>
                 </div>
                 <div id="playlist-history">
                     <h3>Playlist History</h3>
                     <ul id="history-items">
+                        <li id="empty-item">No items in your playlist history.</li>
                     </ul>
                 </div>
             </div>
