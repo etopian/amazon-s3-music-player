@@ -9,6 +9,7 @@ But here is what you need, you need a bucket with your music... As it stands it 
 
 ## Features
 - Playlist - Designed to play music uniterrupted.
+- Responsive - Works with devices of all shapes and sizes
 - Search - Search your list of music
 - Play random tracks - Play random tracks from all your tracks, or from the search. Auto-playlist.
 - Play history
@@ -17,6 +18,7 @@ But here is what you need, you need a bucket with your music... As it stands it 
 ## TODO
 - Save the state of the player so it's the same when you return, either using a db or local cache.
 - Use an audio library to allow fading out.
+- Allow playlist to be reordered on mobile either using drag and drop or using arrows
 
 Drop this on a server that supports PHP 5.3+. 
 
