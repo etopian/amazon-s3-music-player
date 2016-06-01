@@ -7,6 +7,17 @@ But here is what you need, you need a bucket with your music... As it stands it 
 
 ![Screenshot](https://raw.githubusercontent.com/etopian/amazon-s3-music-player/master/s3-music-player.png)
 
+## Features
+- Playlist - Designed to play music uniterrupted.
+- Search - Search your list of music
+- Play random tracks - Play random tracks from all your tracks, or from the search. Auto-playlist.
+- Play history
+
+
+## TODO
+- Save the state of the player so it's the same when you return, either using a db or local cache.
+- Use an audio library to allow fading out.
+
 Drop this on a server that supports PHP 5.3+. 
 
 Rename settings.example.json to settings.json and fill the keys.
