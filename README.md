@@ -5,7 +5,7 @@ This is small database less application written in Slim 3 to replace Grooveshark
 
 But here is what you need, you need a bucket with your music... As it stands it will dump all the content on a single page... So up to a thousand songs is fine, a few thousand might not be...
 
-![Screenshot](https://raw.githubusercontent.com/etopian/amazon-s3-music-player/master/s3-music-player.png)
+![Screenshot](https://raw.githubusercontent.com/etopian/amazon-s3-music-player/master/music.png)
 
 ## Features
 - Playlist - Designed to play music uniterrupted.
