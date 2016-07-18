@@ -19,6 +19,7 @@ But here is what you need, you need a bucket with your music... As it stands it 
 - Save the state of the player so it's the same when you return, either using a db or local cache.
 - Use an audio library to allow fading out.
 - Allow playlist to be reordered on mobile either using drag and drop or using arrows
+- Some sort of IDv3 parsing. Right now it simply reads the file names and cleans them a bit. It's possible to use a javascript idv3 library, but special permissions have to be set via Amazon on each file object to allow this to work.
 
 Drop this on a server that supports PHP 5.3+. 
 
