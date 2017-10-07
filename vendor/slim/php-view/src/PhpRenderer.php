@@ -37,7 +37,7 @@ class PhpRenderer
      */
     public function __construct($templatePath = "", $attributes = [])
     {
-        $this->templatePath = $templatePath;
+        $this->templatePath = rtrim($templatePath, '/\\') . '/';
         $this->attributes = $attributes;
     }
 
@@ -62,7 +62,7 @@ class PhpRenderer
         $output = $this->fetch($template, $data);
 
         $response->getBody()->write($output);
-        
+
         return $response;
     }
 
@@ -127,7 +127,7 @@ class PhpRenderer
      */
     public function setTemplatePath($templatePath)
     {
-        $this->templatePath = $templatePath;
+        $this->templatePath = rtrim($templatePath, '/\\') . '/';
     }
 
     /**
@@ -164,9 +164,17 @@ class PhpRenderer
         */
         $data = array_merge($this->attributes, $data);
 
-        ob_start();
-        $this->protectedIncludeScope($this->templatePath . $template, $data);
-        $output = ob_get_clean();
+        try {
+            ob_start();
+            $this->protectedIncludeScope($this->templatePath . $template, $data);
+            $output = ob_get_clean();
+        } catch(\Throwable $e) { // PHP 7+
+            ob_end_clean();
+            throw $e;
+        } catch(\Exception $e) { // PHP < 7
+            ob_end_clean();
+            throw $e;
+        }
 
         return $output;
     }

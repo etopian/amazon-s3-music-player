@@ -4,6 +4,7 @@
  * @license MIT
  * @license http://opensource.org/licenses/MIT
  */
+
 namespace Slim\PDO\Statement;
 
 use Slim\PDO\Clause\LimitClause;
@@ -378,12 +379,12 @@ abstract class StatementContainer
     }
 
     /**
-     * @param $number
-     * @param null $offset
+     * @param int $number
+     * @param int $offset
      *
      * @return $this
      */
-    public function limit($number, $offset = null)
+    public function limit($number, $offset = 0)
     {
         $this->limitClause->limit($number, $offset);
 
@@ -396,14 +397,56 @@ abstract class StatementContainer
     abstract public function __toString();
 
     /**
+     * @return bool
+     */
+    public function commit()
+    {
+        return $this->dbh->commit();
+    }
+
+    /**
+     * @return bool
+     */
+    public function rollBack()
+    {
+        return $this->dbh->rollBack();
+    }
+
+    /**
+     * @return bool
+     */
+    public function beginTransaction()
+    {
+        return $this->dbh->beginTransaction();
+    }
+
+    /**
      * @return \PDOStatement
      */
     public function execute()
     {
         $stmt = $this->getStatement();
-        $stmt->execute($this->values);
+        $this->bindValues($stmt, $this->values);
+        $stmt->execute();
 
         return $stmt;
+    }
+
+    /**
+     * Bind values to their parameters in the given statement.
+     *
+     * @param  \PDOStatement $statement
+     * @param  array  $bindings
+     * @return void
+     */
+    protected function bindValues($statement, $bindings)
+    {
+        foreach ($bindings as $key => $value) {
+            $statement->bindValue(
+                is_string($key) ? $key : $key + 1, $value,
+                is_int($value) ? \PDO::PARAM_INT : \PDO::PARAM_STR
+            );
+        }
     }
 
     /**
@@ -457,7 +500,7 @@ abstract class StatementContainer
     {
         $placeholders = $this->placeholders;
 
-        unset($this->placeholders);
+        $this->placeholders = array();
 
         return '( '.implode(' , ', $placeholders).' )';
     }
@@ -470,6 +513,16 @@ abstract class StatementContainer
         foreach ($values as $value) {
             $this->placeholders[] = $this->setPlaceholder('?', is_null($value) ? 1 : sizeof($value));
         }
+    }
+
+    /**
+     * @param array $array
+     *
+     * @return bool
+     */
+    protected function isAssociative(array $array)
+    {
+        return array_keys($array) !== range(0, count($array) - 1);
     }
 
     /**

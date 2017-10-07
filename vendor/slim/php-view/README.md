@@ -1,6 +1,14 @@
+[![Build Status](https://travis-ci.org/geggleto/PHP-View.svg?branch=master)](https://travis-ci.org/geggleto/PHP-View)
+
 ## PHP Renderer
 
 This is a renderer for rendering PHP view scripts into a PSR-7 Response object. It works well with Slim Framework 3.
+
+
+### Cross-site scripting (XSS) risks
+
+Note that PHP-View has no built-in mitigation from XSS attacks. It is the developer's responsibility to use `htmlspecialchars()` or a component like [zend-escaper](https://github.com/zendframework/zend-escaper). Alternatively, consider  [Twig-View](https://github.com/slimphp/Twig-View).
+
 
 
 ## Templates
@@ -13,7 +21,7 @@ Install with [Composer](http://getcomposer.org):
     composer require slim/php-view
 
 
-## Usage With Slim 3
+## Usage with Slim 3
 
 ```php
 use Slim\Views\PhpRenderer;

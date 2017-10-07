@@ -4,6 +4,7 @@
  * @license MIT
  * @license http://opensource.org/licenses/MIT
  */
+
 namespace Slim\PDO;
 
 use Slim\PDO\Statement\SelectStatement;
@@ -28,7 +29,7 @@ class Database extends \PDO
      */
     public function __construct($dsn, $usr = null, $pwd = null, array $options = array())
     {
-        $options = $this->getDefaultOptions() + $options;
+        $options = $options + $this->getDefaultOptions();
 
         @parent::__construct($dsn, $usr, $pwd, $options);
     }
@@ -57,13 +58,13 @@ class Database extends \PDO
     }
 
     /**
-     * @param array $columns
+     * @param array $columnsOrPairs
      *
      * @return InsertStatement
      */
-    public function insert(array $columns = array())
+    public function insert(array $columnsOrPairs = array())
     {
-        return new InsertStatement($this, $columns);
+        return new InsertStatement($this, $columnsOrPairs);
     }
 
     /**

@@ -196,3 +196,7 @@ input.search{
 #playlist{
     margin-top: 10px;
 }
+
+.audio-file, .skip-link{
+    cursor: pointer;
+}
