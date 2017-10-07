@@ -63,6 +63,17 @@ $app->get('/url', function ($request, $oldResponse, $args) {
     return $newResponse;     
 });
 
+$app->get('/clearcache', function ($request, $oldResponse, $args) {
+    
+    $settings = $GLOBALS['settings'];
+
+    $newResponse = $oldResponse->withHeader('Content-type', 'application/json');
+
+    $newResponse = $oldResponse->withJson(apcu_delete('urls_json'));    
+    
+    return $newResponse;     
+});
+
 
 $app->get('/load', function ($request, $oldResponse, $args) {
     $newResponse = $oldResponse->withHeader('Content-type', 'application/json');
@@ -80,8 +91,9 @@ $app->get('/load', function ($request, $oldResponse, $args) {
 
 
     //apcu_delete('urls_json');
-    $urls = $settings['APCU_CACHE'] ? apcu_fetch('urls_json') : false;
+    $urls = $settings['APCU_CACHE'] === true ? apcu_fetch('urls_json') : false;
     //$urls = false;
+    //print_r(count($urls));
     
     if($urls === false){
         $urls = [];
