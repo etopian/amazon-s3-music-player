@@ -96,7 +96,7 @@ $(document).ready(function(){
               key = file.key;
               console.log(key);
               var self = this; // create a closure to access component in the callback below
-              $.getJSON('/url?key=' + key + '&pass=' + password, function(url) {
+              $.getJSON(baseurl + 'url?key=' + key + '&pass=' + password, function(url) {
                   //self.files = data;
                   console.log(url);
                   self.change(url, file);
@@ -115,7 +115,7 @@ $(document).ready(function(){
         mounted:  function () {
 
           var self = this; // create a closure to access component in the callback below
-          $.getJSON('/load?pass=' + password, function(data) {
+          $.getJSON( baseurl + 'load?pass=' + password, function(data) {
               self.files = data;
               //console.log(self.files);                  
           }); 

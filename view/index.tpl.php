@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?= $base_url; ?>assets/style.css">
     <script type="text/javascript">
         var password = "<?= $password ?>";
+        var baseurl = "<?= $base_url; ?>";
     </script>
 </head>
 
