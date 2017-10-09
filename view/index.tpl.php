@@ -8,6 +8,7 @@
     <script src="<?= $base_url; ?>assets/jsmediatags.min.js"></script>
     <script src="<?= $base_url; ?>assets/vue.min.js"></script>
     <script src="<?= $base_url; ?>assets/script.js"></script>    
+    <script src="<?= $base_url; ?>assets/howler.min.js"></script>        
     <link rel="stylesheet" href="<?= $base_url; ?>assets/style.css">
     <script type="text/javascript">
         var password = "<?= $password ?>";

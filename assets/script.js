@@ -27,9 +27,9 @@ $(document).ready(function(){
         methods: {
             play_random_track: function(){
                 //find random track to play
-                var random_item_idx = Math.floor( (Math.random() * this.files.length) + 1 );
+                var random_item_idx = Math.floor( (Math.random() * this.filteredFiles.length) + 1 );
                 console.log(random_item_idx);
-                var file = this.files.splice( random_item_idx, 1 )[0];
+                var file = this.filteredFiles.splice( random_item_idx, 1 )[0];
                 this.play(file);
             },
             remove_playlist: function(index){
@@ -56,6 +56,8 @@ $(document).ready(function(){
                 var title = file.title;
                 var self = this;
                 if($("#mp3_src").attr("src").length === 0 || audio[0].ended ) {
+                    
+                   
 
                     this.add_to_playlist_history(file);
 
