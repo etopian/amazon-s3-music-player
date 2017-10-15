@@ -7,9 +7,15 @@
     <script src="<?= $base_url; ?>assets/jquery-ui.min.js"></script>
     <script src="<?= $base_url; ?>assets/jsmediatags.min.js"></script>
     <script src="<?= $base_url; ?>assets/vue.min.js"></script>
+    <script src="<?= $base_url; ?>assets/Sortable.min.js"></script>
+ 
+    <script src="<?= $base_url; ?>assets/vuedraggable.min.js"></script>
+ 
     <script src="<?= $base_url; ?>assets/script.js"></script>    
     <script src="<?= $base_url; ?>assets/howler.min.js"></script>        
     <link rel="stylesheet" href="<?= $base_url; ?>assets/style.css">
+
+
     <script type="text/javascript">
         var password = "<?= $password ?>";
         var baseurl = "<?= $base_url; ?>";
@@ -38,9 +44,11 @@
                     <h3>Playlist</h3>
                     <ul id="items">
                         <li v-if="playlist.length == 0" id="empty-item">No items in the playlist.</li>
-                        <li v-for="(file,index) in playlist">
-                            <a class="playlist-audio-file" >{{file.title}}</a><a v-on:click="remove_playlist(index)" class="remove">(x)</a>
-                        </li>                                
+                        <draggable v-model="playlist" :options="{draggable:'.playlist-item'}">
+                            <li v-for="(file,index) in playlist" class="playlist-item">
+                                <a class="playlist-audio-file" >{{file.title}}</a><a v-on:click="remove_playlist(index)" class="remove">(x)</a>
+                            </li>
+                        </draggable>
                     </ul>
                 </div>
                 <div id="playlist-history">
